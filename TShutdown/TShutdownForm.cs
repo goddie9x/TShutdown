@@ -7,6 +7,31 @@ namespace TShutdown
         private string timer = "0";
         private bool shutdownFlag = false;
         private bool isSettingTimer = false;
+        private bool isValidTimer = false;
+
+        private bool IsValidTimer
+        {
+            get
+            {
+                return isValidTimer;
+            }
+            set
+            {
+                isValidTimer = value;
+                if (isValidTimer)
+                {
+                    ErrorTimerText.Visible = false;
+                    TimerShutdownBtn.Visible = true;
+                    TimerRestartBtn.Visible = true;
+                }
+                else
+                {
+                    ErrorTimerText.Visible = true; 
+                    TimerShutdownBtn.Visible = false;
+                    TimerRestartBtn.Visible = false;
+                }
+            }
+        }
         private bool IsSettingTimer
         {
             get
@@ -19,17 +44,11 @@ namespace TShutdown
                 if (isSettingTimer)
                 {
                     TimerField.Visible = true;
-                    ErrorTimerText.Visible = true;
-                    TimerShutdownBtn.Visible = true;
-                    TimerRestartBtn.Visible = true;
-                    TimerField.Focus();
                 }
                 else
                 {
                     TimerField.Visible = false;
                     ErrorTimerText.Visible = false;
-                    TimerShutdownBtn.Visible = false;
-                    TimerRestartBtn.Visible = false;
                 }
             }
         }
@@ -48,27 +67,35 @@ namespace TShutdown
         //shutdownFlag true = shut down, false = restart, timer for second
         private void HandleCommandTimer(bool useTimer = false)
         {
-            string commandType = "";
-            string shutdownKey = "";
-            if (shutdownFlag)
+            if (isSettingTimer&&!isValidTimer)
             {
-                commandType = "shutdown";
-                shutdownKey = "/s";
+                return;
             }
-            else
-            {
-                commandType = "restart";
-                shutdownKey = "/r";
-            }
-            DialogResult confirm = MessageBox.Show("Are you sure you want to "+ commandType + "?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(confirm == DialogResult.Yes)
-            {
-                string currentTimer = useTimer ? timer : "0";
-                var psi = new ProcessStartInfo("shutdown", shutdownKey + " /f /t " + currentTimer);
-                psi.CreateNoWindow = true;
-                psi.UseShellExecute = false;
-                Process.Start(psi);
-            }
+                string commandTypeMessage = "";
+                string shutdownKey = "";
+                string currentMessage = "Are you sure that you want to ";
+                
+                if (shutdownFlag)
+                {
+                    commandTypeMessage = isSettingTimer? "set shutdown schedule?" : "shutdown";
+                    currentMessage += commandTypeMessage;
+                    shutdownKey = "/s";
+                }
+                else
+                {
+                    commandTypeMessage = isSettingTimer ? "set restart schedule?" : "restart";
+                    currentMessage += commandTypeMessage;
+                    shutdownKey = "/r";
+                }
+                DialogResult confirm = MessageBox.Show(currentMessage, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(confirm == DialogResult.Yes)
+                {
+                    string currentTimer = useTimer ? timer : "0";
+                    var psi = new ProcessStartInfo("shutdown", shutdownKey + " /f /t " + currentTimer);
+                    psi.CreateNoWindow = true;
+                    psi.UseShellExecute = false;
+                    Process.Start(psi);
+                }
         }
         private void ConvertTimerToSecond()
         {
@@ -113,12 +140,13 @@ namespace TShutdown
             if (CheckTimerType(currentTimerText))
             {
                 timer = currentTimerText;
+                IsValidTimer = true;
                 ErrorTimerText.Visible = false;
             }
             else
             {
                 ErrorTimerText.Visible = true;
-
+                IsValidTimer = false;
             }
         }
 

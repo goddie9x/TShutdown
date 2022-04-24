@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_64D46606B4BB49A2A111449B9B95D375"
+        "MsmKey" = "8:_016D83293D224D3881AAF0628CEBDFFF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -166,15 +166,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TShutdownSetup"
-        "ProductCode" = "8:{42F42B81-AA59-48F8-905D-AC6FDE3B12F5}"
-        "PackageCode" = "8:{FFA0661A-6F66-4157-AF95-7B0940396019}"
+        "ProductCode" = "8:{71280B4E-6101-4A1D-81B1-031B0233BC52}"
+        "PackageCode" = "8:{9D3B919B-FD27-438A-8FD6-C93D92580ABF}"
         "UpgradeCode" = "8:{59DBC847-06DE-4700-9C4C-259DAE0FF085}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:goddie9x"
         "ARPHELPTELEPHONE" = "8:0326152310"
         "ARPHELPLINK" = "8:https://te11.herokuapp.com/"
@@ -287,30 +287,30 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6C12CBC0DF38422FAF7C4F07FC3C8AEB"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CFDB1B008CED4D7AAD78CCD00591BCF8"
             {
             "Name" = "8:TShutdown"
             "Arguments" = "8:"
-            "Description" = "8:a shortcut for TShutdown"
+            "Description" = "8:Shortcut for TShutdown"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_64D46606B4BB49A2A111449B9B95D375"
-            "Folder" = "8:_12B8765E757E44E99F7F15AB16E93999"
+            "Target" = "8:_016D83293D224D3881AAF0628CEBDFFF"
+            "Folder" = "8:_AF99043303B5466FBC106455739344CF"
             "WorkingFolder" = "8:_BEE4F8205A344E45BE4B7313D57A2917"
             "Icon" = "8:_79F008E06A79466BA005CBB5815B9284"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9C2EF727569C447DA3FE3C8CD746D6C9"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D0377356ED734509AAB6DE07BF41C868"
             {
             "Name" = "8:TShutdown"
             "Arguments" = "8:"
-            "Description" = "8:A shortcut for TShutdown"
+            "Description" = "8:Shortcut for TShutdown"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_64D46606B4BB49A2A111449B9B95D375"
-            "Folder" = "8:_AF99043303B5466FBC106455739344CF"
+            "Target" = "8:_016D83293D224D3881AAF0628CEBDFFF"
+            "Folder" = "8:_12B8765E757E44E99F7F15AB16E93999"
             "WorkingFolder" = "8:_BEE4F8205A344E45BE4B7313D57A2917"
             "Icon" = "8:_79F008E06A79466BA005CBB5815B9284"
             "Feature" = "8:"
@@ -714,7 +714,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_64D46606B4BB49A2A111449B9B95D375"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_016D83293D224D3881AAF0628CEBDFFF"
             {
             "SourcePath" = "8:..\\TShutdown\\obj\\Release\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
