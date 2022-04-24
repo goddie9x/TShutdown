@@ -36,6 +36,14 @@ namespace TShutdown
         public TShutdownForm()
         {
             InitializeComponent();
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(TimerField, "Input timer (for type: hh:mm:ss)");
+            toolTip.SetToolTip(TimerShutdownBtn, "Set timer to shutdown");
+            toolTip.SetToolTip(TimerRestartBtn, "Set timer to restart");
+            toolTip.SetToolTip(ShutdownBtn, "Shutdown");
+            toolTip.SetToolTip(RestartBtn, "Restart");
+            toolTip.SetToolTip(SetTimerBtn, "Set timer");
+            toolTip.SetToolTip(CancelScheduleBtn, "Cancel schedule");
         }
         //shutdownFlag true = shut down, false = restart, timer for second
         private void HandleCommandTimer(bool useTimer = false)
